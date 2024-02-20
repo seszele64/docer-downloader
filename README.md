@@ -1,11 +1,15 @@
-Installation instructions:
+More in depth instructions available in my [🔗notes🔗](https://notes.szelewi.cz/projects/docer+downloader/docer+downloader)
+- with images for easy walkthrough
+- both in English and Polish
+
+## Installation instructions
 
 1. **Download the Extension ZIP File:**
    - Visit the GitHub repository page of the extension: [Docer Downloader](https://github.com/seszele64/docer-downloader).
    - Click on the green "Code" button and select "Download ZIP" to download the entire repository as a ZIP file.
 
 2. **Extract the ZIP File:**
-   - Once the download is complete, locate the downloaded ZIP file (`docer-downloader-main.zip`) in your computer's downloads folder.
+   - Once the download is complete, locate the downloaded ZIP file (`docer-downloader.zip`) in your computer's downloads folder.
    - Right-click on the ZIP file and select "Extract All" (or a similar option depending on your operating system) to extract the contents of the ZIP file.
 
 3. **Install the Extension in Chrome:**
@@ -30,4 +34,9 @@ Installation instructions:
 
    <!-- Spaces added below -->
    
-   
+## Using extension
+
+1. Open your document and perform captcha test
+2. Wait until document preview has loaded (necessary to work)
+3. Click on the extension icon
+4. Click Download button
