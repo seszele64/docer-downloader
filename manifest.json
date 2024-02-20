@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Docer Downloader",
+  "version": "1.0",
+  "description": "A Chrome extension designed to facilitate the download of documents exceeding 1 MB on docer.pl without encountering payment requests.",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "scripting",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docer.pl/doc/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://docer.pl/*"
+  ]
+}

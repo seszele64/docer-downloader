@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check for PDF</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            width: 300px;
+            min-height: 200px; /* Adjusted for additional content */
+            padding: 15px;
+        }
+        .card {
+            margin-bottom: 10px;
+        }
+        .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Instructions</h5>
+            <p class="card-text">
+                1. Display the document (confirm that you are not a robot if necessary).<br>
+                2. Click the button below once the document has loaded.        
+            </p>
+            <button id="checkPdfButton" class="btn btn-primary">Download PDF</button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Author: seszele | <a href="https://github.com/seszele64/docer-downloader">Link to the project</a></p>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
