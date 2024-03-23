@@ -14,4 +14,4 @@ To utilize the Docer Downloader extension for downloading documents from Docer, 
 
 1. Navigate to and open the specific document on Docer that you wish to download.
 2. Activate the extension by clicking on its icon located in the Chrome toolbar. Should the Docer Downloader icon not be immediately visible, click on the Extensions icon (often represented by a puzzle piece) and locate "Docer Downloader" from the list. For ease of access in future use, you may right-click on the Docer Downloader extension and select "Pin to toolbar."
-3. Within the extension's popup window, click on the "Download Document" button to initiate the download process of the current document.
+3. Perform captcha and your desired document will automatically be downloaded.
