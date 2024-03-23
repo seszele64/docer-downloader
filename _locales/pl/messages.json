@@ -1,0 +1,21 @@
+{
+    "popupTitle": {
+      "message": "Znajdź i pobierz dokumenty z Docer.pl"
+    },
+    "instructionsTitle": {
+      "message": "Instrukcje"
+    },
+    "instructionsText": {
+      "message": "Po prostu otwórz stronę Docer i przejdź do dokumentu, który chcesz pobrać. Na niej, wykonaj weryfikację captcha, aby rozpocząć pobieranie."
+    },
+    "authorText": {
+      "message": "Autor: seszele"
+    },
+    "projectLinkText": {
+      "message": "zostaw ⭐ na GitHubie"
+    },
+    "latestReleaseText": {
+      "message": "Najnowsza wersja"
+    }
+  }
+  

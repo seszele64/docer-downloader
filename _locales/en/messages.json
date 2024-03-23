@@ -1,0 +1,20 @@
+{
+    "popupTitle": {
+      "message": "Find documents on Docer"
+    },
+    "instructionsTitle": {
+      "message": "Instructions"
+    },
+    "instructionsText": {
+      "message": "Simply open the Docer site and navigate to the document you wish to download. Once there, perform captcha verification to start the download."
+    },
+    "authorText": {
+      "message": "Author: seszele"
+    },
+    "projectLinkText": {
+      "message": "Project link, leave ⭐"
+    },
+    "latestReleaseText": {
+      "message": "Latest release"
+    }
+  }  

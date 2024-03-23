@@ -3,45 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check for PDF</title>
+    <title>Docer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
-            width: 300px;
-            min-height: 200px; /* Adjusted for additional content */
-            padding: 15px;
+            width: 350px; /* Slightly wider for a better layout */
+            min-height: 200px;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa; /* Soft background color */
         }
         .card {
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* More space below card */
+            border: none; /* Remove card border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow to card */
         }
-        .btn {
-            width: 100%;
-            margin-top: 10px;
+        .card-title {
+            color: #495057; /* Dark gray color for text */
+            font-size: 1.25rem; /* Larger font size for title */
+            margin-bottom: 15px; /* More space below title */
+        }
+        .card-text {
+            color: #6c757d; /* Soft color for text */
+            line-height: 1.5; /* Improved line spacing for readability */
         }
         .footer {
             text-align: center;
-            font-size: 0.8em;
-            margin-top: 15px;
+            font-size: 0.9em; /* A bit larger font size */
+            color: #6c757d; /* Soft color for footer text */
+            margin-top: 20px; /* More space above footer */
         }
+        .footer a {
+            color: #007bff; /* Bootstrap primary color for links */
+            text-decoration: none; /* No underline on links */
+            margin-right: 5px; /* Spacing between links */
+        }
+        .footer a:hover {
+            color: #0056b3; /* Darken link color on hover */
+        }
+        .footer i {
+            color: #ffc107; /* Yellow color for the star */
+        }
+        /* Additional custom styles can go here */
     </style>
 </head>
 <body>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Instructions</h5>
-            <p class="card-text">
-                Simply open the Docer site and navigate to the document you wish to download. Once there, click the button below to initiate the download process.      
-            </p>
-            <button id="download" class="btn btn-primary">Download Document</button>
+            <h5 class="card-title" data-i18n="instructionsTitle"></h5>
+            <p class="card-text" data-i18n="instructionsText"></p>
         </div>
     </div>
     <div class="footer">
-        <p>Author: seszele</p>
+        <p data-i18n="authorText"></p>
+
         <p>
-            <a href="https://github.com/seszele64/docer-downloader" target="_blank">Link to the project</a> |
-            <a href="https://github.com/seszele64/docer-downloader/releases/latest" target="_blank">Latest release</a>
+            <a href="https://github.com/seszele64/docer-downloader" target="_blank" data-i18n="projectLinkText"></a> |
+            <a href="https://github.com/seszele64/docer-downloader/releases/latest" target="_blank" data-i18n="latestReleaseText"></a>
         </p>
+        
     </div>
-    <script src="popup.js"></script>
+    <script src="localize.js"></script>
 </body>
 </html>
