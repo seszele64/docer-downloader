@@ -13,7 +13,7 @@ chrome.webRequest.onCompleted.addListener(
     console.log('Request completed to URL:', details.url);
 
     // Check if the URL matches the expected pattern and hasn't been processed
-    if ((details.url.includes('pdf_dummy') || details.url.includes('/getepub/')) && !processedUrls.has(details.url)) {
+    if ((details.url.includes('pdf_dummy') || details.url.includes('getpdf') || details.url.includes('/getepub/')) && !processedUrls.has(details.url)) {
       console.log('Detected the EPUB file download request. Opening in new tab:', details.url);
 
       // Add the URL to the set of processed URLs
@@ -24,7 +24,7 @@ chrome.webRequest.onCompleted.addListener(
     }
   },
   // URL filter for the listener
-  { urls: ["https://stream2.docer.pl/pdf_dummy/*", "https://stream.docer.pl/getepub/*"] },
+  { urls: ["https://stream2.docer.pl/pdf_dummy/*", "https://stream.docer.pl/getpdf/*", "https://stream.docer.pl/getepub/*"] },
   // Optional extra parameters (none needed here since we're not blocking requests)
   []
 );
