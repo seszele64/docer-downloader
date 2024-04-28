@@ -1,30 +1,41 @@
-// A set to keep track of processed URLs
-const processedUrls = new Set();
+// Load the shared configuration from config.json
+function loadConfig(callback) {
+  const configUrl = chrome.runtime.getURL('config.json');
+  fetch(configUrl)
+    .then(response => response.json())
+    .then(config => callback(config))
+    .catch(error => console.error('Error loading config:', error));
+}
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === "openTab" && message.url) {
-    chrome.tabs.create({ url: message.url });
-  }
-});
+// Function to create regex patterns for matching URLs
+function createRegexPatterns(domains) {
+  return domains.map(domain => new RegExp(`^https?://(.*\\.)?${domain.replace(/\./g, '\\.')}/pdf_dummy/.*$`));
+}
 
-// Listener for the completed web requests to the specified URL pattern
-chrome.webRequest.onCompleted.addListener(
-  function(details) {
-    console.log('Request completed to URL:', details.url);
+// When the configuration is loaded, set up the listeners
+loadConfig(function(config) {
+  const { baseDomains } = config;
+  const pdfUrlPatterns = createRegexPatterns(baseDomains);
+  let openedUrls = {};
 
-    // Check if the URL matches the expected pattern and hasn't been processed
-    if ((details.url.includes('pdf_dummy') || details.url.includes('getpdf') || details.url.includes('/getepub/')) && !processedUrls.has(details.url)) {
-      console.log('Detected the EPUB file download request. Opening in new tab:', details.url);
+  chrome.webRequest.onCompleted.addListener(
+    function(details) {
+      console.log('Request completed. URL:', details.url); // Log the URL of the completed request
 
-      // Add the URL to the set of processed URLs
-      processedUrls.add(details.url);
+      // Check if the URL matches any of the regex patterns and if it has not been opened before
+      const isPdfUrl = pdfUrlPatterns.some(pattern => pattern.test(details.url));
+      if (isPdfUrl && !openedUrls[details.url]) {
+        console.log('Match found. Opening new tab with URL:', details.url); // Log when a matching URL is found
+        chrome.tabs.create({ url: details.url });
 
-      // Open the URL in a new tab
-      chrome.tabs.create({ url: details.url });
-    }
-  },
-  // URL filter for the listener
-  { urls: ["https://stream2.docer.pl/pdf_dummy/*", "https://stream.docer.pl/getpdf/*", "https://stream.docer.pl/getepub/*"] },
-  // Optional extra parameters (none needed here since we're not blocking requests)
-  []
-);
+        // Mark the URL as opened
+        openedUrls[details.url] = true;
+      } else {
+        console.log('URL already opened or does not match:', details.url); // Log when the URL has been opened or does not match
+      }
+    },
+    // Monitor all XMLHTTPRequests
+    {urls: ["<all_urls>"], types: ["xmlhttprequest"]});
+  });
+
+
