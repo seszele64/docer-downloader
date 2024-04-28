@@ -35,10 +35,10 @@ function checkForFileUrl(mutationList, observer) {
           // Detect if the URL is from Google Viewer and extract the actual file URL if necessary
           const googleViewerMatch = fileUrl.match(/url=([^&]+)/);
           fileUrl = googleViewerMatch ? decodeURIComponent(googleViewerMatch[1]) : fileUrl;
-          // Send the file URL to the background script
-          chrome.runtime.sendMessage({action: "openTab", url: fileUrl});
+          // Open the file URL in a new tab
+          window.open(fileUrl, '_blank');
           observer.disconnect(); // Disconnect the observer if not needed further
-          console.log('File URL found and sent to background script:', fileUrl);
+          console.log('File URL opened in new tab:', fileUrl);
         } else {
           console.log('File URL was not found or is not valid.');
         }
@@ -49,31 +49,13 @@ function checkForFileUrl(mutationList, observer) {
   }
 }
 
-// Intercept network requests to catch EPUB files
-function interceptEPUBFiles() {
-  const originalFetch = window.fetch;
-  window.fetch = function(...args) {
-    if (typeof args[0] === 'string') {
-      console.log('Fetch request detected, URL:', args[0]);
-      if (args[0].startsWith('https://stream2.docer.pl/pdf_dummy/')) {
-        console.log('Fetch request for EPUB file intercepted:', args[0]);
-        chrome.runtime.sendMessage({ action: "openTab", url: args[0] });
-      }
-    }
-    return originalFetch.apply(this, args);
-  };
-  console.log('Fetch requests are now being intercepted for EPUB files.');
-}
-
 // Wait for the DOM to be fully loaded before attempting to set up the observer
 if (document.readyState === "complete" || document.readyState === "interactive") {
   console.log('DOM is ready. Setting up observer and fetch interception.');
   setUpObserver();
-  interceptEPUBFiles();
 } else {
   console.log('DOM is not fully loaded. Will set up observer and fetch interception when ready.');
   window.addEventListener('DOMContentLoaded', () => {
     setUpObserver();
-    interceptEPUBFiles();
   });
 }
