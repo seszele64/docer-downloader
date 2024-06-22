@@ -21,9 +21,9 @@ function checkForFileUrl(mutationList, observer) {
       console.log('A childList mutation was observed.');
       const pdfHolder = document.getElementById('pdf-holder');
       // Check for both PDF and MOBI URLs
-      const fileUrlElement = pdfHolder.querySelector('[data-pdf-url], iframe.google-doc');
+      const fileUrlElements = pdfHolder.querySelectorAll('[data-pdf-url], iframe.google-doc');
 
-      if (fileUrlElement) {
+      for (fileUrlElement of fileUrlElements) {
         console.log('A file URL element was found:', fileUrlElement);
 
         // Attempt to get the URL, checking for both PDF and MOBI files
@@ -39,10 +39,13 @@ function checkForFileUrl(mutationList, observer) {
           window.open(fileUrl, '_blank');
           observer.disconnect(); // Disconnect the observer if not needed further
           console.log('File URL opened in new tab:', fileUrl);
+          break;
         } else {
           console.log('File URL was not found or is not valid.');
         }
-      } else {
+      }
+
+      if (fileUrlElements.length == 0) {
         console.log('No file URL element found within the PDF holder.');
       }
     }
