@@ -1,4 +1,4 @@
-More in depth instructions available in my [🔗notes🔗](https://notes.szelewi.cz/projects/docer+downloader/docer+downloader)
+More in depth instructions available in my [🔗notes🔗](https://notes.szelewi.cz/projects/docer-downloader/docer-downloader)
 - with images for easy walkthrough
 - both in English and Polish
 
