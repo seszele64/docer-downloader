@@ -1,3 +1,7 @@
+> Now also available on Firefox: https://addons.mozilla.org/en-US/firefox/addon/docer-downloader/
+
+## Information
+
 More in depth instructions available in my [🔗notes🔗](https://notes.szelewi.cz/projects/docer-downloader/docer-downloader)
 - with images for easy walkthrough
 - both in English and Polish
