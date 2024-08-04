@@ -5,7 +5,7 @@
 To make it work for you:
 
 1. Download and install the [Tampermonkey](https://www.tampermonkey.net/) add-on for your browser
-2. Install [my script](https://gist.github.com/seszele64/011bd8a049d11fc9579d93afafa0367c/raw/3db9907d13997257808a9a75cad7d6c3a208a2ce/Docer%2520Document%2520Downloader.user.js)
+2. Install [my script](https://gist.github.com/seszele64/011bd8a049d11fc9579d93afafa0367c/raw/Docer%20Document%20Downloader.user.js)
 3. Head to docer site with document of preferance
 4. Solve the captcha
 5. Click the button on the top right to download the file (should work for all types of files)
