@@ -1,6 +1,6 @@
 ## Update 2024-11-16
 currently the script might not be working on Firefox based browsers, I will be investigating the issue to work out some resolution, meanwhile:
-fortunately the script works for Chrome based browsers (I updated [Installation info section](https://github.com/seszele64/docer-downloader/edit/main/README.md#installation-info) below)
+fortunately the script works for Chrome based browsers (I updated [Installation info section](https://github.com/seszele64/docer-downloader?tab=readme-ov-file#installation-info) below)
 
 ## Docer Downloader Script
 
